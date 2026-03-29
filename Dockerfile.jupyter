@@ -2,10 +2,13 @@ FROM jupyter/base-notebook
 
 USER root
 
-# instala Java
+# instala Java (OBRIGATÓRIO pro PySpark)
 RUN apt-get update && \
     apt-get install -y openjdk-11-jdk && \
     apt-get clean
+
+# instala PySpark
+RUN pip install pyspark
 
 # configura JAVA_HOME
 ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
