@@ -49,7 +49,9 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
 
   jupyter:
-    image: jupyter/base-notebook
+    build:
+      context: .
+      dockerfile: Dockerfile.jupyter
     container_name: jupyter
     ports:
       - "8888:8888"
